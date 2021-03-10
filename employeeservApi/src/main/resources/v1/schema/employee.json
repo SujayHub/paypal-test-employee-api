@@ -1,0 +1,42 @@
+{
+  "title": "Employee resource",
+  "description": "Employee resource object",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "employee id",
+      "type": "integer"
+    },
+    "first_name": {
+      "description": "first name",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "last_name": {
+      "description": "last name",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "date_of_birth": {
+      "description": "date of birth",
+      "type": "string",
+      "pattern":"^[0-1][0-9]-[0-3][0-9]-[1-2][0-9][0-9][0-9]$"
+    },
+    "email": {
+      "description": "email of employee",
+      "type": "string",
+      "pattern":"^([\\p{L}-_\\.]+){1,64}@([\\p{L}-_\\.]+){2,255}.[a-z]{2,}$"
+    },
+    "address": {
+      "$ref" : "address.json"
+    }
+  },
+  "required": [
+    "first_name",
+    "last_name",
+    "email",
+    "date_of_birth"
+  ]
+}
